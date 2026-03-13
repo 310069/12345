@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自主學習展示平台 | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2D3436; /* 深色背景感 */
+            --accent-color: #6C5CE7;  /* 現代感紫色 */
+            --bg-light: #F9F9FB;
+            --text-main: #2D3436;
+        }
+
+        body, html { margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans TC', sans-serif; background: var(--bg-light); scroll-behavior: smooth; }
+
+        /* 全螢幕首頁區塊 (The Pudding 風格) */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 100%);
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; letter-spacing: 2px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* 年級切換大鈕 (Wix 風格) */
+        .tab-section {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 25px;
+            border: none;
+            background: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            color: #636e72;
+        }
+        .tab-btn.active { background: var(--accent-color); color: white; }
+        .tab-btn:hover:not(.active) { background: #f1f2f6; }
+
+        /* 內容呈現區 */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .content-group { display: none; animation: fadeIn 0.6s ease forwards; }
+        .content-group.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 互動式作業卡片 (Interactive Cards) */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .work-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15);
+            border-color: var(--accent-color);
+        }
+        .work-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .work-title { font-size: 1.6rem; margin: 15px 0; color: var(--text-main); }
+        .work-desc { color: #636e72; line-height: 1.6; margin-bottom: 25px; }
+
+        /* 現代感按鈕 */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+        .cta-button:hover { background: #5649c0; transform: scale(1.05); }
+
+        /* 空白狀態 */
+        .empty-state { text-align: center; padding: 100px 0; color: #b2bec3; font-style: italic; }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>自主學習展示平台</h1>
+        <p>EXPLORING THE BOUNDARIES OF LEARNING</p>
+    </section>
+
+    <div class="tab-section">
+        <button class="tab-btn active" onclick="switchTab(event, 'g10')">高一學習內容</button>
+        <button class="tab-btn" onclick="switchTab(event, 'g11')">高二學習內容</button>
+    </div>
+
+    <div class="container">
+        <div id="g10" class="content-group active">
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-tag">國文領域</div>
+                    <div class="work-title">國文閱讀心得</div>
+                    <p class="work-desc">深入分析經典文學作品，透過自主閱讀建立批判性思考與文字美學。</p>
+                    <a href="https://www.canva.com/design/DAGbN-OkqpA/OBGCbgBO91ctx2jB2P1vbQ/view?utm_content=DAGbN-OkqpA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h406c3e5eaa" target="_blank" class="cta-button">查看作品檔案 →</a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-tag">英文領域</div>
+                    <div class="work-title">波妞的背後含意</div>
+                    <p class="work-desc">以英語解析動畫角色與象徵意義，結合語言學習與跨文化研究。</p>
+                    <a href="https://www.canva.com/design/DAGpokWyvns/0BeX1PFRX5WktdrfBVm38A/view?utm_content=DAGpokWyvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbcb43f2499" target="_blank" class="cta-button">查看作品檔案 →</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="g11" class="content-group">
+            <div class="empty-state">
+                <p>高二學習成果正在整理中，敬請期待...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(evt, tabId) {
+            // 隱藏所有內容
+            const contents = document.querySelectorAll('.content-group');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // 移除按鈕活動狀態
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // 顯示當前內容
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
